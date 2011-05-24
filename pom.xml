@@ -1,13 +1,22 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>net.sf.jodreports</groupId>
+
+  <!-- since we forked, let's use a different groupId to avoid interfering with
+  the original code on sourceforge: -->
+  <groupId>de.lightful.businessdocs.jodreports</groupId>
+  <!--<groupId>net.sf.jodreports</groupId>-->
   <artifactId>jodreports</artifactId>
+  <version>2.4.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>JODReports</name>
-  <version>2.4.1-SNAPSHOT</version>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <description>
-    JODReports generates dynamic documents and reports based on the
-    OpenDocument Format and FreeMarker.
+    JODReports generates dynamic documents and reports based on the OpenDocument Format and FreeMarker.
   </description>
   <url>http://jodreports.sourceforge.net/</url>
   <licenses>
@@ -37,25 +46,21 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>1.6.1</version>
-      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
       <version>1.4</version>
-      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.freemarker</groupId>
       <artifactId>freemarker</artifactId>
       <version>2.3.16</version>
-      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>xom</groupId>
       <artifactId>xom</artifactId>
       <version>1.2.5</version>
-      <scope>compile</scope>
       <exclusions>
         <exclusion>
           <groupId>xalan</groupId>
@@ -90,8 +95,8 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>1.4</source>
-          <target>1.4</target>
+          <source>1.6</source>
+          <target>1.6</target>
         </configuration>
       </plugin>
     </plugins>
@@ -108,7 +113,4 @@
       </plugin>
     </plugins>
   </reporting>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
 </project>
