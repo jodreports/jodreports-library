@@ -33,8 +33,8 @@
 
   <scm>
     <url>https://github.com/ansgarkonermann/jodreports</url>
-    <connection>scm:git:git@github.com:ansgarkonermann/jodreports.git</connection>
-    <developerConnection>scm:git:git@github.com:ansgarkonermann/jodreports.git</developerConnection>
+    <connection>scm:git:git@github.com:delightful-business-documents/jodreports-library.git</connection>
+    <developerConnection>scm:git:git@github.com:delightful-business-documents/jodreports-library.git</developerConnection>
   </scm>
 
   <developers>
