@@ -3,19 +3,16 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>de.lightful.businessdocs.jodreports</groupId>
-    <artifactId>jodreports-parent</artifactId>
-    <version>0.9.1-SNAPSHOT</version>
+    <groupId>de.lightful.businessdocs</groupId>
+    <artifactId>library-parent</artifactId>
+    <version>0.5.3-SNAPSHOT</version>
   </parent>
 
-  <!-- since we forked, let's use a different groupId to avoid interfering with
-  the original code on sourceforge: -->
-  <groupId>de.lightful.businessdocs.jodreports</groupId>
-  <!--<groupId>net.sf.jodreports</groupId>-->
-  <artifactId>jodreports</artifactId>
-  <version>2.4.1-SNAPSHOT</version>
+  <groupId>de.lightful.businessdocs</groupId>
+  <artifactId>jodreports-library</artifactId>
+  <version>0.9.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>JODReports :: Library</name>
+  <name>Business Docs :: JODReports :: Library</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
