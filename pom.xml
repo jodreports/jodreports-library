@@ -3,45 +3,37 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.jodreports</groupId>
-    <artifactId>library-parent</artifactId>
-    <version>3.0.0-SNAPSHOT</version>
+    <groupId>org.jodreports.poms</groupId>
+    <artifactId>jodreports-parent</artifactId>
+    <version>1-SNAPSHOT</version>
   </parent>
 
   <groupId>org.jodreports</groupId>
   <artifactId>jodreports-library</artifactId>
   <version>3.0.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+
   <name>JODReports :: Library</name>
+  <description>JODReports generates dynamic documents and reports based on the OpenDocument Format and FreeMarker.</description>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-
-  <description>
-    JODReports generates dynamic documents and reports based on the OpenDocument Format and FreeMarker.
-  </description>
-
-  <url>http://jodreports.org/</url>
+  <url>http://www.jodreports.org/</url>
 
   <licenses>
     <license>
       <name>GNU Lesser General Public License, Version 2.1</name>
       <url>http://www.gnu.org/licenses/lgpl.html</url>
+      <distribution>repo</distribution>
     </license>
   </licenses>
-
-  <scm>
-    <url>https://github.com/jodreports</url>
-    <connection>scm:git:git@github.com:jodreports/jodreports-library.git</connection>
-    <developerConnection>scm:git:git@github.com:jodreports/jodreports-library.git</developerConnection>
-  </scm>
 
   <developers>
     <developer>
       <id>mnasato</id>
       <name>Mirko Nasato</name>
       <email>mirko@artofsolving.com</email>
+      <roles>
+        <role>founder</role>
+        <role>eremitus</role>
+      </roles>
     </developer>
     <developer>
       <id>terryliang</id>
@@ -112,5 +104,11 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <scm>
+    <url>https://github.com/jodreports</url>
+    <connection>scm:git:git@github.com:jodreports/jodreports-library.git</connection>
+    <developerConnection>scm:git:git@github.com:jodreports/jodreports-library.git</developerConnection>
+  </scm>
 
 </project>
