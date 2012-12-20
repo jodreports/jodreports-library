@@ -6,6 +6,7 @@
     <groupId>org.jodreports.poms</groupId>
     <artifactId>jodreports-parent</artifactId>
     <version>1-SNAPSHOT</version>
+    <relativePath>../jodreports-parent</relativePath>
   </parent>
 
   <groupId>org.jodreports</groupId>
