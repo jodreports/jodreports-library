@@ -15,7 +15,10 @@
   <name>JODReports :: Library</name>
   <description>JODReports generates dynamic documents and reports based on the OpenDocument Format and FreeMarker.</description>
 
-  <url>http://www.jodreports.org/</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <url>http://jodreports.org/</url>
 
   <licenses>
     <license>
