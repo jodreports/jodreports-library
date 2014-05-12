@@ -5,8 +5,7 @@
   <parent>
     <groupId>org.jodreports.poms</groupId>
     <artifactId>jodreports-parent</artifactId>
-    <version>1-SNAPSHOT</version>
-    <relativePath>../jodreports-parent</relativePath>
+    <version>1</version>
   </parent>
 
   <groupId>org.jodreports</groupId>
@@ -99,11 +98,6 @@
       <version>1.6.1</version>
       <scope>test</scope>
     </dependency>
-    <!--<dependency>-->
-      <!--<groupId>org.testng</groupId>-->
-      <!--<artifactId>testng</artifactId>-->
-      <!--<scope>test</scope>-->
-    <!--</dependency>-->
   </dependencies>
 
   <scm>
