@@ -9,7 +9,7 @@
 
   <groupId>org.jodreports</groupId>
   <artifactId>jodreports-library</artifactId>
-  <version>3.0.0</version>
+  <version>3.0.1-SNAPSHOT</version>
 
   <name>JODReports :: Library</name>
   <description>JODReports generates dynamic documents and reports based on the OpenDocument Format and FreeMarker.</description>
