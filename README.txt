@@ -1,5 +1,5 @@
-This is JODReports version 4.0.0 development, a fork of the 
-original project by Barry Pearce. 
+This is JODReports version 4.0.0 development by Barry Pearce, a fork of the 
+original project. 
 
 This fork contains the following features:
 
