@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import nu.xom.Builder;
 import nu.xom.Document;
@@ -30,10 +31,10 @@ public class SettingsSubDocument {
 		}
 	}
 
-	public void changeSettings(Map openDocumentSettings) {
-		Iterator settings = openDocumentSettings.entrySet().iterator();
+	public void changeSettings(Map<String, Object> openDocumentSettings) {
+		Iterator<Entry<String, Object>> settings = openDocumentSettings.entrySet().iterator();
 	    while(settings.hasNext()){
-	    	Map.Entry setting = (Map.Entry) settings.next();
+	    	Entry<String, Object> setting = settings.next();
 			Nodes configNodes = document.query("//config:config-item[@config:name='" + setting.getKey() + "']", 
 					OpenDocumentNamespaces.XPATH_CONTEXT);
 			for (int nodeIndex = 0; nodeIndex < configNodes.size(); nodeIndex++) {

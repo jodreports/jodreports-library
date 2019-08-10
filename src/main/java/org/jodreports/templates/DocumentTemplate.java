@@ -68,9 +68,9 @@ public interface DocumentTemplate {
 	 */
     public void setContentWrapper(ContentWrapper contentWrapper);
 
-    public void setOpenDocumentSettings(Map openDocumentSettings);
+    public void setOpenDocumentSettings(Map<String, Object> openDocumentSettings);
     
-    public Map getConfigurations();
+    public Map<String, Object> getConfigurations();
     
     /**
      * Merge the data model into this template and create the output document.

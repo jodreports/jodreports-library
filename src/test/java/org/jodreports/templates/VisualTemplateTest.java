@@ -22,32 +22,33 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class VisualTemplateTest extends AbstractTemplateTest {
 
-	/**
-	 * template contains input fields:
-	 * <tt>[description:field1,content:field one] [description:field2,content:field two]</tt>
-	 * @deprecated use {@link TextInputTagTest#testVariable()}
-	 */
-	public void testVisualFields() throws IOException, DocumentTemplateException {
-        File templateFile = getTestFile("visual-fields-template.odt");
-        Map model = new HashMap();
-        model.put("field1", "First Value");
-        model.put("field2", "Second Value");
-        String actual = processTemplate(templateFile, model);
-        String expected =
-        	"1: First Value\n"+
-        	"2: Second Value";
-        assertEquals(expected, actual);
-    }
+//	/**
+//	 * template contains input fields:
+//	 * <tt>[description:field1,content:field one] [description:field2,content:field two]</tt>
+//	 * @deprecated use {@link TextInputTagTest#testVariable()}
+//	 */
+//	public void testVisualFields() throws IOException, DocumentTemplateException {
+//        File templateFile = getTestFile("visual-fields-template.odt");
+//        Map<String, Object> model = new HashMap<String, Object>();
+//        model.put("field1", "First Value");
+//        model.put("field2", "Second Value");
+//        String actual = processTemplate(templateFile, model);
+//        String expected =
+//        	"1: First Value\n"+
+//        	"2: Second Value";
+//        assertEquals(expected, actual);
+//    }
 
 	/**
 	 * template contains <tt>[#setting number_format="00.00"]</tt>
 	 */
     public void testScriptWithSetting() throws IOException, DocumentTemplateException {
         File templateFile = getTestFile("visual-script-setting-template.odt");
-        Map model = new HashMap();
-        model.put("value", new Double("7.5"));
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("value", Double.valueOf(7.5));
         String actual = processTemplate(templateFile, model);
         assertEquals("Number: 07.50", actual);
     }
@@ -57,8 +58,8 @@ public class VisualTemplateTest extends AbstractTemplateTest {
 	 */
     public void testNewScriptWithSetting() throws IOException, DocumentTemplateException {
         File templateFile = getTestFile("visual-script-setting-template-2.odt");
-        Map model = new HashMap();
-        model.put("value", new Double("7.5"));
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("value", Double.valueOf(7.5));
         String actual = processTemplate(templateFile, model);
         assertEquals("Number: 07.50", actual);
     }
@@ -68,19 +69,19 @@ public class VisualTemplateTest extends AbstractTemplateTest {
 	 */
     public void testScriptForRepeatingTableRow() throws IOException, DocumentTemplateException {
         File templateFile = getTestFile("visual-repeat-table-row-template.odt");
-        Map model = new HashMap();
-        List items = new ArrayList();
+        Map<String, Object> model = new HashMap<String, Object>();
+        List<Map<String, Object>> items = new ArrayList<Map<String, Object>>();
         model.put("items", items);
-        Map one = new HashMap();
-        one.put("value", new Integer(1));
+        Map<String, Object> one = new HashMap<String, Object>();
+        one.put("value", Integer.valueOf(1));
         one.put("description", "one");
         items.add(one);
-        Map two = new HashMap();
-        two.put("value", new Integer(2));
+        Map<String, Object> two = new HashMap<String, Object>();
+        two.put("value", Integer.valueOf(2));
         two.put("description", "two");
         items.add(two);
-        Map three = new HashMap();
-        three.put("value", new Integer(3));
+        Map<String, Object> three = new HashMap<String, Object>();
+        three.put("value", Integer.valueOf(3));
         three.put("description", "three");
         items.add(three);
         String actual = processTemplate(templateFile, model);
@@ -97,19 +98,19 @@ public class VisualTemplateTest extends AbstractTemplateTest {
 	 */
     public void testNewScriptForRepeatingTableRow() throws IOException, DocumentTemplateException {
         File templateFile = getTestFile("visual-repeat-table-row-template-2.odt");
-        Map model = new HashMap();
-        List items = new ArrayList();
+        Map<String, Object> model = new HashMap<String, Object>();
+        List<Map<String, Object>> items = new ArrayList<Map<String, Object>>();
         model.put("items", items);
-        Map one = new HashMap();
-        one.put("value", new Integer(1));
+        Map<String, Object> one = new HashMap<String, Object>();
+        one.put("value", Integer.valueOf(1));
         one.put("description", "one");
         items.add(one);
-        Map two = new HashMap();
-        two.put("value", new Integer(2));
+        Map<String, Object> two = new HashMap<String, Object>();
+        two.put("value", Integer.valueOf(2));
         two.put("description", "two");
         items.add(two);
-        Map three = new HashMap();
-        three.put("value", new Integer(3));
+        Map<String, Object> three = new HashMap<String, Object>();
+        three.put("value", Integer.valueOf(3));
         three.put("description", "three");
         items.add(three);
         String actual = processTemplate(templateFile, model);
@@ -126,23 +127,23 @@ public class VisualTemplateTest extends AbstractTemplateTest {
 	 */
     public void testScriptWithSpecialCharsInDirective() throws IOException, DocumentTemplateException {
         File templateFile = getTestFile("visual-script-special-chars-template.odt");
-        Map model = new HashMap();
-        List items = new ArrayList();
+        Map<String, Object> model = new HashMap<String, Object>();
+        List<Map<String, Object>> items = new ArrayList<Map<String, Object>>();
         model.put("items", items);
-        Map one = new HashMap();
-        one.put("value", new Integer(1));
+        Map<String, Object> one = new HashMap<String, Object>();
+        one.put("value", Integer.valueOf(1));
         one.put("description", "one");
         one.put("cond1", "yes");
         one.put("cond2", "no");
         items.add(one);
-        Map two = new HashMap();
-        two.put("value", new Integer(2));
+        Map<String, Object> two = new HashMap<String, Object>();
+        two.put("value", Integer.valueOf(2));
         two.put("description", "two");
         two.put("cond1", "yes");
         two.put("cond2", "--");
         items.add(two);
-        Map three = new HashMap();
-        three.put("value", new Integer(3));
+        Map<String, Object> three = new HashMap<String, Object>();
+        three.put("value", Integer.valueOf(3));
         three.put("description", "three");
         three.put("cond1", "yes");
         three.put("cond2", "no");
@@ -161,7 +162,7 @@ public class VisualTemplateTest extends AbstractTemplateTest {
 	 */
     public void testScriptWithSpecialCharsForOutput() throws IOException, DocumentTemplateException {
         File templateFile = getTestFile("visual-script-special-chars-output-template.odt");
-        Map model = new HashMap();
+        Map<String, Object> model = new HashMap<String, Object>();
         model.put("value", "<!@#$%^&*-->");
         model.put("JooScriptNullDevice", "fdsfdfs");
         String actual = processTemplate(templateFile, model);
@@ -173,20 +174,20 @@ public class VisualTemplateTest extends AbstractTemplateTest {
 	 */
     public void testScriptForTableSpanRow() throws IOException, DocumentTemplateException {
         File templateFile = getTestFile("visual-table-span-row-template.odt");
-        Map model = new HashMap();
-        List items = new ArrayList();
+        Map<String, Object> model = new HashMap<String, Object>();
+        List<Object> items = new ArrayList<Object>();
         model.put("items", items);
-        Map one = new HashMap();
+        Map<String, Object> one = new HashMap<String, Object>();
         one.put("col1", "cell 1a");
         one.put("col2", "cell 1b");
         one.put("rowspan", Integer.valueOf(2));
         items.add(one);
-        Map two = new HashMap();
+        Map<String, Object> two = new HashMap<String, Object>();
         two.put("col1", "cell 2a");
         two.put("col2", "cell 2b");
         two.put("rowspan", Integer.valueOf(0));
         items.add(two);
-        Map three = new HashMap();
+        Map<String, Object> three = new HashMap<String, Object>();
         three.put("col1", "cell 3a");
         three.put("col2", "cell 3b");
         three.put("rowspan", Integer.valueOf(1));
@@ -206,22 +207,22 @@ public class VisualTemplateTest extends AbstractTemplateTest {
 	 */
     public void testScriptForTableDynamicColumn() throws IOException, DocumentTemplateException {
         File templateFile = getTestFile("visual-table-dynamic-column-template.odt");
-        Map model = new HashMap();
+        Map<String, Object> model = new HashMap<String, Object>();
 
-        List headers = new ArrayList();
+        List<Object> headers = new ArrayList<Object>();
         model.put("headers", headers);
         headers.add("header1");
         headers.add("header2");
         headers.add("header3");
         
-        List items = new ArrayList();
+        List<Object> items = new ArrayList<Object>();
         model.put("items", items);
-        List item = new ArrayList();
+        List<String> item = new ArrayList<String>();
         item.add("a1");
         item.add("a2");
         item.add("a3");
         items.add(item);
-        item = new ArrayList();
+        item = new ArrayList<String>();
         item.add("b1");
         item.add("b2");
         item.add("b3");

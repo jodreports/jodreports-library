@@ -49,7 +49,7 @@ public abstract class XmlEntryFilter {
 		XPATH_CONTEXT.addNamespace("xlink", XLINK_NAMESPACE);
 	}
 
-	public void applyConfigurations(Map configurations) {
+	public void applyConfigurations(Map<String, Object> configurations) {
 		/* Default implementation does not use any configuration */
 	}
 

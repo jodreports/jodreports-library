@@ -39,9 +39,9 @@ class TemplatePreProcessor {
 	private String[] xmlEntries;
 	private XmlEntryFilter[] xmlEntryFilters;
 	private ContentWrapper contentWrapper;
-	private final Map configurations;
+	private final Map<String, Object> configurations;
 	
-	public TemplatePreProcessor(String[] xmlEntries, XmlEntryFilter[] xmlEntryFilters, ContentWrapper contentWrapper, Map configurations) {
+	public TemplatePreProcessor(String[] xmlEntries, XmlEntryFilter[] xmlEntryFilters, ContentWrapper contentWrapper, Map<String, Object> configurations) {
 		this.xmlEntries = xmlEntries;
 		this.xmlEntryFilters = xmlEntryFilters;
 		this.contentWrapper = contentWrapper;
@@ -49,7 +49,7 @@ class TemplatePreProcessor {
 	}
 
 	public void process(OpenDocumentArchive archive) throws DocumentTemplateException, IOException {
-		for (Iterator it = archive.getEntryNames().iterator(); it.hasNext();) {
+		for (Iterator<String> it = archive.getEntryNames().iterator(); it.hasNext();) {
 			String entryName = (String) it.next();
 			if (Arrays.binarySearch(xmlEntries, entryName) >= 0) {
 				InputStream inputStream = archive.getEntryInputStream(entryName);

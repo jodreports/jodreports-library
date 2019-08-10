@@ -25,7 +25,7 @@ public class OpenDocumentArchiveTest extends TestCase {
 
 		OpenDocumentArchive archiveCopy = archive.createCopy();
 		assertNotNull(archiveCopy);
-		Set entryNames = archiveCopy.getEntryNames();
+		Set<String> entryNames = archiveCopy.getEntryNames();
 		assertNotNull(entryNames);
 		assertEquals(2, entryNames.size());
 		assertTrue(entryNames.contains(OpenDocumentArchive.ENTRY_MIMETYPE));

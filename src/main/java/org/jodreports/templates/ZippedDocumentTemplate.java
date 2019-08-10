@@ -15,15 +15,13 @@
 //
 package org.jodreports.templates;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import freemarker.template.Configuration;
-
 import org.jodreports.opendocument.OpenDocumentArchive;
 import org.jodreports.opendocument.OpenDocumentIO;
+
+import freemarker.template.Configuration;
 
 /**
  * Class for generating OpenDocument documents from a template and a data model.
@@ -37,20 +35,6 @@ public class ZippedDocumentTemplate extends AbstractDocumentTemplate {
 
     public ZippedDocumentTemplate(InputStream inputStream, Configuration freemarkerConfiguration) throws IOException {
     	super(freemarkerConfiguration);
-    	archive = OpenDocumentIO.readZip(inputStream);
-    }
-
-    /**
-     * @deprecated use {@link DocumentTemplateFactory#getTemplate(File)}
-     */
-    public ZippedDocumentTemplate(File file) throws IOException {
-        this(new FileInputStream(file));
-    }
-
-    /**
-     * @deprecated use {@link DocumentTemplateFactory#getTemplate(InputStream)}
-     */
-    public ZippedDocumentTemplate(InputStream inputStream) throws IOException {
     	archive = OpenDocumentIO.readZip(inputStream);
     }
 

@@ -38,16 +38,6 @@ public class UnzippedDocumentTemplate extends AbstractDocumentTemplate {
         archive = OpenDocumentIO.readDirectory(directory);		
 	}
 
-	/**
-	 * @deprecated since 2.1 use {@link DocumentTemplateFactory#getTemplate(File)}
-	 */
-    public UnzippedDocumentTemplate(File directory) throws IOException {
-        if (!(directory.isDirectory() && directory.canRead())) {
-            throw new IllegalArgumentException("not a readable directory: "+ directory);
-        }        
-        archive = OpenDocumentIO.readDirectory(directory);
-    }
-
     protected OpenDocumentArchive getOpenDocumentArchive() {
     	return archive;
     }

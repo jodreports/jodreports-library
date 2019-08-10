@@ -30,7 +30,7 @@ public class TextInputTagTest extends AbstractTemplateTest {
 	 */
     public void testVariable() throws IOException, DocumentTemplateException {
         File templateFile = getTestFile("textinput-variable-template.odt");
-        Map model = new HashMap();
+        Map<String, Object> model = new HashMap<String, Object>();
         model.put("name", "Mirko");
         String actual = processTemplate(templateFile, model);
         assertEquals("output content", "Hello Mirko!", actual);
@@ -41,7 +41,7 @@ public class TextInputTagTest extends AbstractTemplateTest {
 	 */
     public void testDirective() throws IOException, DocumentTemplateException {
         File templateFile = getTestFile("textinput-directive-template.odt");
-        Map model = new HashMap();
+        Map<String, Object> model = new HashMap<String, Object>();
         model.put("name", "Mirko");
         String actual = processTemplate(templateFile, model);
         assertEquals("output content", "Hello Mr. Mirko!", actual);
@@ -53,7 +53,7 @@ public class TextInputTagTest extends AbstractTemplateTest {
 	 */
     public void testDirectivesInOneLine() throws IOException, DocumentTemplateException {
         File templateFile = getTestFile("textinput-directives-oneline-template.odt");
-        Map model = new HashMap();
+        Map<String, Object> model = new HashMap<String, Object>();
         model.put("name", "Mirko");
         model.put("showname", "Yes");
         String actual = processTemplate(templateFile, model);
@@ -70,7 +70,7 @@ public class TextInputTagTest extends AbstractTemplateTest {
 	 */
     public void testDirectivesInSplitLine() throws IOException, DocumentTemplateException {
         File templateFile = getTestFile("textinput-directives-splitline-template.odt");
-        Map model = new HashMap();
+        Map<String, Object> model = new HashMap<String, Object>();
         model.put("name", "Mirko");
         model.put("showname", "Yes");
         String actual = processTemplate(templateFile, model);
@@ -83,7 +83,7 @@ public class TextInputTagTest extends AbstractTemplateTest {
 	 */
     public void testDirectiveWithSpecialChars() throws IOException, DocumentTemplateException {
         File templateFile = getTestFile("textinput-directives-special-chars-template.odt");
-        Map model = new HashMap();
+        Map<String, Object> model = new HashMap<String, Object>();
         model.put("cond1", "pass");
         model.put("cond2", "pass");
         String actual = processTemplate(templateFile, model);
@@ -100,7 +100,7 @@ public class TextInputTagTest extends AbstractTemplateTest {
 	 */
     public void testDirectivesSwitch() throws IOException, DocumentTemplateException {
         File templateFile = getTestFile("textinput-directives-switch-template.odt");
-        Map model = new HashMap();
+        Map<String, Object> model = new HashMap<String, Object>();
         model.put("option", "2");
         String actual = processTemplate(templateFile, model);
         assertEquals("output content", "Two", actual);

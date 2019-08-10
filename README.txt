@@ -1,23 +1,30 @@
-This is JODReports version 2.4.0, released on 2011-01-28
+This is JODReports version 4.0.0 development, a fork of the 
+original project by Barry Pearce. 
+
+This fork contains the following features:
+
+Support for LibreOffice 6+ - notably repeating table rows now works again!
+Based on Java 8. 
+
+
 
 Please see
 
   http://sourceforge.net/projects/jodreports/
   
-for the latest and up to date documentation.
+for the original documentation.
 
 Requirements
 ============
 
-JODReports requires Java 1.4 or later (although with minor modifications
-it can be made to work with 1.3 as well).
+JODReports requires Java 1.8 or later.
 
 To create documents in formats other than OpenDocument Text (odt) 
-please use JODConverter library
-See http://www.artofsolving.com/opensource/jodconverter for more info.
+please use JODConverter library. As the original library is no longer 
+maintained the recommended JODCOnvertor fork is by Simon Braconnier 
+and may be found here:
+https://github.com/sbraconnier/jodconverter
 
-To run the webapp a servlet 2.3 container such as Apache Tomcat 4.1
-or later is also required.
 
 Licenses
 ========

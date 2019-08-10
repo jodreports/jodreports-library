@@ -1,3 +1,16 @@
+4.0.0 
+-----
+Fork by Barry Pearce.
+ * Source brought up to 1.8 standards incl. modern collections code.
+ * Updated external library versions.
+ * Deprecated methods removed.
+ * External deprecated methods resolved (except 1).
+ * Compile warnings resolved.
+ * Support for LibreOffice 6+ (Scripts no longer supported all Jooscript must be entered in input fields).
+ * Jooscript in input fields now supports @table:table-row. and @#location tag attribute.
+ * Fixed issue where table cell deleted if it only contained an input field.
+ 
+
 2.4.0
 ---
 Improvement

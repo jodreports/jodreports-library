@@ -23,24 +23,24 @@ public class DynamicImagesTest extends AbstractTemplateTest {
 		ImageSource blue = new FileImageSource("src/test/resources/blue.png");
 		ImageSource blue2 = new ClasspathImageSource("blue.png");
 		
-		Map model = new HashMap();
-		List items = new ArrayList();
-		Map item1 = new HashMap();
+		Map<String, Object> model = new HashMap<String, Object>();
+		List<Map<String, Object>> items = new ArrayList<Map<String, Object>>();
+		Map<String, Object> item1 = new HashMap<String, Object>();
 		item1.put("description", "First Item");
 		item1.put("quantity", "20");
 		item1.put("picture", red);
 		items.add(item1);
-		Map item2 = new HashMap();
+		Map<String, Object> item2 = new HashMap<String, Object>();
 		item2.put("description", "Second Item");
 		item2.put("quantity", "15");
 		item2.put("picture", blue);
 		items.add(item2);
-		Map item3 = new HashMap();
+		Map<String, Object> item3 = new HashMap<String, Object>();
 		item3.put("description", "Third Item");
 		item3.put("quantity", "50");
 		item3.put("picture", red);
 		items.add(item3);
-		Map item4 = new HashMap();
+		Map<String, Object> item4 = new HashMap<String, Object>();
 		item4.put("description", "Fourth Item");
 		item4.put("quantity", "20");
 		item4.put("picture", blue2);
@@ -77,24 +77,24 @@ public class DynamicImagesTest extends AbstractTemplateTest {
 		ImageSource blue = new FileImageSource("src/test/resources/blue.png");
 		ImageSource blue2 = new ClasspathImageSource("blue.png");
 		
-		Map model = new HashMap();
-		List items = new ArrayList();
-		Map item1 = new HashMap();
+		Map<String, Object> model = new HashMap<String, Object>();
+		List<Map<String, Object>> items = new ArrayList<Map<String, Object>>();
+		Map<String, Object> item1 = new HashMap<String, Object>();
 		item1.put("description", "First Item");
 		item1.put("quantity", "20");
 		item1.put("picture", red);
 		items.add(item1);
-		Map item2 = new HashMap();
+		Map<String, Object> item2 = new HashMap<String, Object>();
 		item2.put("description", "Second Item");
 		item2.put("quantity", "15");
 		item2.put("picture", blue);
 		items.add(item2);
-		Map item3 = new HashMap();
+		Map<String, Object> item3 = new HashMap<String, Object>();
 		item3.put("description", "Third Item");
 		item3.put("quantity", "50");
 		item3.put("picture", red);
 		items.add(item3);
-		Map item4 = new HashMap();
+		Map<String, Object> item4 = new HashMap<String, Object>();
 		item4.put("description", "Fourth Item");
 		item4.put("quantity", "20");
 		item4.put("picture", blue2);
@@ -129,24 +129,24 @@ public class DynamicImagesTest extends AbstractTemplateTest {
 		
 		ImageSource blue = new FileImageSource("src/test/resources/blue.png");
 
-		Map model = new HashMap();
-		List items = new ArrayList();
-		Map item1 = new HashMap();
+		Map<String, Object> model = new HashMap<String, Object>();
+		List<Map<String, Object>> items = new ArrayList<Map<String, Object>>();
+		Map<String, Object> item1 = new HashMap<String, Object>();
 		item1.put("description", "First Item");
 		item1.put("quantity", "20");
 		item1.put("picture", blue);
 		items.add(item1);
-		Map item2 = new HashMap();
+		Map<String, Object> item2 = new HashMap<String, Object>();
 		item2.put("description", "Second Item");
 		item2.put("quantity", "15");
 		item2.put("picture", "src/test/resources/red.png");
 		items.add(item2);
-		Map item3 = new HashMap();
+		Map<String, Object> item3 = new HashMap<String, Object>();
 		item3.put("description", "Third Item");
 		item3.put("quantity", "50");
 		item3.put("picture", "");
 		items.add(item3);
-		Map item4 = new HashMap();
+		Map<String, Object> item4 = new HashMap<String, Object>();
 		item4.put("description", "Fourth Item");
 		item4.put("quantity", "20");
 		item4.put("picture", null);
@@ -183,24 +183,24 @@ public class DynamicImagesTest extends AbstractTemplateTest {
 		ImageSource blue = new FileImageSource("src/test/resources/blue.png");
 		ImageSource blue2 = new ClasspathImageSource("blue.png");
 
-		Map model = new HashMap();
-		List items = new ArrayList();
-		Map item1 = new HashMap();
+		Map<String, Object> model = new HashMap<String, Object>();
+		List<Map<String, Object>> items = new ArrayList<Map<String, Object>>();
+		Map<String, Object> item1 = new HashMap<String, Object>();
 		item1.put("description", "First Item");
 		item1.put("quantity", "20");
 		item1.put("picture", red);
 		items.add(item1);
-		Map item2 = new HashMap();
+		Map<String, Object> item2 = new HashMap<String, Object>();
 		item2.put("description", "Second Item");
 		item2.put("quantity", "15");
 		item2.put("picture", blue);
 		items.add(item2);
-		Map item3 = new HashMap();
+		Map<String, Object> item3 = new HashMap<String, Object>();
 		item3.put("description", "Third Item");
 		item3.put("quantity", "50");
 		item3.put("picture", red);
 		items.add(item3);
-		Map item4 = new HashMap();
+		Map<String, Object> item4 = new HashMap<String, Object>();
 		item4.put("description", "Fourth Item");
 		item4.put("quantity", "20");
 		item4.put("picture", blue2);
@@ -232,7 +232,7 @@ public class DynamicImagesTest extends AbstractTemplateTest {
 	
 	public void testImageResize() throws Exception {
 		File templateFile = getTestFile("images-resize-template.odt");
-        Map model = new HashMap();
+        Map<String, Object> model = new HashMap<String, Object>();
         model.put("coinsV", new FileImageSource("src/test/resources/coinsV.jpg"));
         model.put("coinsH", new FileImageSource("src/test/resources/coinsH.jpg"));
         model.put("earthV", new ClasspathImageSource("earthV.jpg"));
@@ -247,19 +247,19 @@ public class DynamicImagesTest extends AbstractTemplateTest {
 			"MaxWidth\n" +
 			"[frame:2.54cm,1.57cm][img:Pictures/dynamic-image-1.png]\n" +
 			"[frame:2.54cm,4.12cm][img:Pictures/dynamic-image-2.png]\n" +
-			"[frame:2.54cm,1.9cm][img:Pictures/dynamic-image-3.png]\n" +
+			"[frame:2.54cm,1.91cm][img:Pictures/dynamic-image-3.png]\n" +
 			"[frame:2.54cm,3.39cm][img:Pictures/dynamic-image-4.png]\n" +
 			"MaxHeight\n" +
 			"[frame:4.12cm,2.54cm][img:Pictures/dynamic-image-1.png]\n" +
 			"[frame:1.57cm,2.54cm][img:Pictures/dynamic-image-2.png]\n" +
 			"[frame:3.39cm,2.54cm][img:Pictures/dynamic-image-3.png]\n" +
-			"[frame:1.9cm,2.54cm][img:Pictures/dynamic-image-4.png]\n" +
+			"[frame:1.91cm,2.54cm][img:Pictures/dynamic-image-4.png]\n" +
 			"Fit\n" +
 			"[frame:2.54cm,1.57cm][img:Pictures/dynamic-image-1.png]\n" +
 			"[frame:1.57cm,2.54cm][img:Pictures/dynamic-image-2.png]\n" +
-			"[frame:2.54cm,1.9cm][img:Pictures/dynamic-image-3.png]\n" +
-			"[frame:1.9cm,2.54cm][img:Pictures/dynamic-image-4.png]";			
-        
+			"[frame:2.54cm,1.91cm][img:Pictures/dynamic-image-3.png]\n" +
+			"[frame:1.91cm,2.54cm][img:Pictures/dynamic-image-4.png]";		
+		
         assertEquals("output content", expected, actual);
 	}
 
