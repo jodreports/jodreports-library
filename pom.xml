@@ -10,7 +10,7 @@
   <!-- <groupId>org.jodreports</groupId> -->
   <groupId>barryspearce</groupId>
   <artifactId>jodreports-library</artifactId>
-  <version>4.0.0</version>
+  <version>4.0.0-beta-1</version>
 
   <name>JODReports :: Library</name>
   <description>JODReports generates dynamic documents and reports based on the OpenDocument Format and FreeMarker.</description>
