@@ -9,6 +9,7 @@ import java.io.Writer;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 
@@ -22,7 +23,7 @@ public class OpenDocumentArchive {
 	public static final String ENTRY_MANIFEST = "META-INF/manifest.xml";
 	public static final String ENTRY_SETTINGS = "settings.xml";
 
-	private Map/*<String,byte[]>*/ entries = new LinkedHashMap();
+	private Map<String,byte[]> entries = new LinkedHashMap<String, byte[]>();
 
 	/**
 	 * A {@link ByteArrayOutputStream} that updates the entry data when it get close()d
@@ -40,7 +41,7 @@ public class OpenDocumentArchive {
 		}
 	}
 
-	public Set getEntryNames() {
+	public Set<String> getEntryNames() {
 		return entries.keySet();
 	}
 
@@ -74,8 +75,8 @@ public class OpenDocumentArchive {
 
 	public OpenDocumentArchive createCopy() {
 		OpenDocumentArchive archiveCopy = new OpenDocumentArchive();
-		for (Iterator it = entries.entrySet().iterator(); it.hasNext();) {
-			Map.Entry entry = (Map.Entry) it.next();
+		for (Iterator<Entry<String, byte[]>> it = entries.entrySet().iterator(); it.hasNext();) {
+			Map.Entry<String, byte[]> entry = it.next();
 			String name = (String) entry.getKey();
 			byte[] entryData = (byte[]) entry.getValue();
 			byte[] entryDataCopy = new byte[entryData.length];

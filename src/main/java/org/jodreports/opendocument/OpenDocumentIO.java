@@ -75,12 +75,12 @@ public class OpenDocumentIO {
 
 	public static void writeZip(OpenDocumentArchive archive, OutputStream outputStream) throws IOException {
 		ZipOutputStream zipOutputStream = new ZipOutputStream(outputStream);
-		Set entryNames = archive.getEntryNames();
+		Set<String> entryNames = archive.getEntryNames();
 		
 		// OpenDocument spec requires 'mimetype' to be the first entry
 		writeZipEntry(zipOutputStream, archive, OpenDocumentArchive.ENTRY_MIMETYPE, ZipEntry.STORED);
 		
-		for (Iterator it = entryNames.iterator(); it.hasNext();) {
+		for (Iterator<String> it = entryNames.iterator(); it.hasNext();) {
 			String entryName = (String) it.next();
 			if (!entryName.equals(OpenDocumentArchive.ENTRY_MIMETYPE)) {
 				writeZipEntry(zipOutputStream, archive, entryName, ZipEntry.DEFLATED);
@@ -106,7 +106,7 @@ public class OpenDocumentIO {
 			zipOutputStream.putNextEntry(zipEntry);
 			IOUtils.copy(entryInputStream, zipOutputStream);
 		}
-		IOUtils.closeQuietly(entryInputStream);
+		entryInputStream.close();
 		zipOutputStream.closeEntry();
 	}
 }

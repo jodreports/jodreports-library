@@ -32,6 +32,7 @@ public class DocumentTestUtils {
         while ((length = reader.read(buffer, 0, 2048)) != -1) {
             writer.write(buffer, 0, length);
         }
+        reader.close();
         String content = stripByteOrderMarkChar(writer.toString());
         return content.trim();
     }

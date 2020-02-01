@@ -31,7 +31,7 @@ import freemarker.template.Configuration;
 
 public abstract class AbstractDocumentTemplate implements DocumentTemplate {
 
-	private static final Configuration DEFAULT_FREEMARKER_CONFIGURATION = new Configuration();
+	private static final Configuration DEFAULT_FREEMARKER_CONFIGURATION = new Configuration(Configuration.VERSION_2_3_28);
 	private static final ContentWrapper DEFAULT_CONTENT_WRAPPER = new ContentWrapper() {
 
 		public String wrapContent(String content) {
@@ -58,8 +58,8 @@ public abstract class AbstractDocumentTemplate implements DocumentTemplate {
 	};
 	private OpenDocumentArchive preProcessedTemplate;
 	
-	private Map openDocumentSettings = new HashMap();
-	private Map configurations = new HashMap();
+	private Map<String, Object> openDocumentSettings = new HashMap<String, Object>();
+	private Map<String, Object> configurations = new HashMap<String, Object>();
 	
 	public AbstractDocumentTemplate() {
 		this(DEFAULT_FREEMARKER_CONFIGURATION);
@@ -84,7 +84,7 @@ public abstract class AbstractDocumentTemplate implements DocumentTemplate {
 
     protected abstract OpenDocumentArchive getOpenDocumentArchive();
 
-	public void setOpenDocumentSettings(Map openDocumentSettings) {
+	public void setOpenDocumentSettings(Map<String, Object> openDocumentSettings) {
 		this.openDocumentSettings = openDocumentSettings;
 	}
 
@@ -106,7 +106,7 @@ public abstract class AbstractDocumentTemplate implements DocumentTemplate {
     	templatePreProcessor.process(preProcessedTemplate);
     }
 
-	public Map getConfigurations() {
+	public Map<String, Object> getConfigurations() {
 		return configurations;
 	}
 

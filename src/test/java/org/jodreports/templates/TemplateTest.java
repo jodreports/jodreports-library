@@ -35,7 +35,7 @@ public class TemplateTest extends AbstractTemplateTest {
 
     public void testZipped() throws IOException, DocumentTemplateException {
         File templateFile = getTestFile("hello-template.odt");
-        Map model = new HashMap();
+        Map<String, Object> model = new HashMap<String, Object>();
         model.put("name", "Mirko");
         String actual = processTemplate(templateFile, model);
         assertEquals("output content", "Hello Mirko!", actual);
@@ -43,7 +43,7 @@ public class TemplateTest extends AbstractTemplateTest {
 
     public void testUnzipped() throws IOException, DocumentTemplateException {
         File templateDir = getTestFile("hello-template");
-        Map model = new HashMap();
+        Map<String, Object> model = new HashMap<String, Object>();
         model.put("name", "Mirko");
         String actual = processTemplate(templateDir, model);
         assertEquals("output content", "Hello Mirko!", actual);
@@ -51,7 +51,7 @@ public class TemplateTest extends AbstractTemplateTest {
 
     public void testXmlSpecialChars() throws IOException, DocumentTemplateException {
         File templateFile = getTestFile("hello-template.odt");
-        Map model = new HashMap();
+        Map<String, Object> model = new HashMap<String, Object>();
         model.put("name", "You&Me");
         String actual = processTemplate(templateFile, model);
         assertEquals("output content", "Hello You&Me!", actual);
@@ -65,7 +65,7 @@ public class TemplateTest extends AbstractTemplateTest {
      */
     public void testStylesDotXml() throws IOException, DocumentTemplateException {
         File templateFile = getTestFile("header-template.odt");
-        Map model = new HashMap();
+        Map<String, Object> model = new HashMap<String, Object>();
         model.put("name", "Mirko");
         try {
             processTemplate(templateFile, model);
@@ -75,7 +75,7 @@ public class TemplateTest extends AbstractTemplateTest {
 
     public void testUtf8() throws Exception {
         File templateFile = getTestFile("hebrew-template.odt");
-        Map model = new HashMap();
+        Map<String, Object> model = new HashMap<String, Object>();
         model.put("Text", "שלום");
         String actual = processTemplate(templateFile, model);
         assertEquals("output content", "A Hebrew Template\n\nטקסט עברי: שלום", actual);        
@@ -87,8 +87,8 @@ public class TemplateTest extends AbstractTemplateTest {
     	Configuration freemarkerConfiguration = documentTemplateFactory.getFreemarkerConfiguration();
     	freemarkerConfiguration.setLocale(Locale.US);
     	freemarkerConfiguration.setNumberFormat("#,##0.00");
-        Map model = new HashMap();
-        model.put("number", new Integer(1000));
+        Map<String, Integer> model = new HashMap<String, Integer>();
+        model.put("number", Integer.valueOf(1000));
         DocumentTemplate template = documentTemplateFactory.getTemplate(templateFile);
         File openDocumentFile = createTempFile("odt");
         template.createDocument(model, new FileOutputStream(openDocumentFile));
@@ -99,7 +99,7 @@ public class TemplateTest extends AbstractTemplateTest {
 
     public void testLineBreaks() throws Exception {
         File templateFile = getTestFile("multiline-template.odt");
-        Map model = new HashMap();
+        Map<String, Object> model = new HashMap<String, Object>();
         model.put("text", "First line\nSecond line\nThird line");
         String content = processTemplate(templateFile, model);
         String expected = "Multiline Text Test\n"
@@ -112,7 +112,7 @@ public class TemplateTest extends AbstractTemplateTest {
 
     public void testCustomContentWrapper() throws Exception {
         File templateFile = getTestFile("multiline-template.odt");
-        Map model = new HashMap();
+        Map<String, String> model = new HashMap<String, String>();
         model.put("text", "First line\nSecond line\nThird line");
         File openDocumentFile = createTempFile(".odt");
         DocumentTemplateFactory documentTemplateFactory = new DocumentTemplateFactory();
@@ -157,7 +157,7 @@ public class TemplateTest extends AbstractTemplateTest {
 				}
 			}
 		}});
-		Map model = new HashMap();
+		Map<String, String> model = new HashMap<String, String>();
 		model.put("name", "Mirko");
 		File openDocumentFile = createTempFile(".odt");
 		template.createDocument(model, new FileOutputStream(openDocumentFile));

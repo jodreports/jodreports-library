@@ -14,7 +14,7 @@ public class DocumentTemplateFactory {
 	private final Configuration freemarkerConfiguration;
 
 	public DocumentTemplateFactory() {
-		freemarkerConfiguration = new Configuration();		
+		freemarkerConfiguration = new Configuration(Configuration.VERSION_2_3_28);		
 		freemarkerConfiguration.setTagSyntax(Configuration.SQUARE_BRACKET_TAG_SYNTAX);
 		freemarkerConfiguration.setDefaultEncoding(OpenDocumentIO.UTF_8.name());
 		freemarkerConfiguration.setOutputEncoding(OpenDocumentIO.UTF_8.name());

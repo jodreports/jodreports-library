@@ -28,7 +28,7 @@ public class TemplateFreemarkerNamespace {
 
 	private int imageIndex = 0;
 	
-	private Map/*<ImageWriter,String>*/ images = new HashMap();
+	private Map<ImageSource,String> images = new HashMap<ImageSource,String>();
 
 	public TemplateFreemarkerNamespace() {
 		decimalFormat.applyPattern("#.##");
@@ -38,7 +38,7 @@ public class TemplateFreemarkerNamespace {
 		return "--";
 	}
 
-	public void applyConfigurations(Map configurations) {
+	public void applyConfigurations(Map<String, Object> configurations) {
 		this.checkImageExistRequired = Configuration.getConfiguration(
 				Configuration.SETTING_CHECK_IMAGE_EXIST, configurations);
 	}
@@ -54,7 +54,7 @@ public class TemplateFreemarkerNamespace {
 		}
 	}
 
-	public Map/*<ImageWriter,String>*/ getImages() {
+	public Map<ImageSource,String> getImages() {
 		return images;
 	}
 

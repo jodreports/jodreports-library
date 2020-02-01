@@ -29,8 +29,6 @@ import org.jodreports.opendocument.OpenDocumentArchive;
 import org.jodreports.opendocument.SettingsSubDocument;
 import org.jodreports.templates.image.ImageSource;
 
-import org.apache.commons.io.IOUtils;
-
 import freemarker.core.Environment;
 import freemarker.ext.beans.BeansWrapper;
 import freemarker.template.Configuration;
@@ -45,11 +43,11 @@ class TemplateAndModelMerger {
 
 	private final Configuration freemarkerConfiguration;
 	private final String[] xmlEntries;
-	private final Map openDocumentSettings;
-	private final Map configurations;
+	private final Map<String, Object> openDocumentSettings;
+	private final Map<String, Object> configurations;
 
 	public TemplateAndModelMerger(Configuration freemarkerConfiguration, String[] xmlEntries, 
-			Map openDocumentSettings, Map configurations) {
+			Map<String, Object> openDocumentSettings, Map<String, Object> configurations) {
 		this.freemarkerConfiguration = freemarkerConfiguration;
 		this.xmlEntries = xmlEntries;
 		this.openDocumentSettings = openDocumentSettings;
@@ -60,7 +58,7 @@ class TemplateAndModelMerger {
 		TemplateFreemarkerNamespace predefinedNamespace = new TemplateFreemarkerNamespace();
 		predefinedNamespace.applyConfigurations(configurations);
 		
-		for (Iterator it = archive.getEntryNames().iterator(); it.hasNext();) {
+		for (Iterator<String> it = archive.getEntryNames().iterator(); it.hasNext();) {
 			String entryName = (String) it.next();
 			if (Arrays.binarySearch(xmlEntries, entryName) >= 0) {
 				Reader reader = archive.getEntryReader(entryName);
@@ -76,8 +74,8 @@ class TemplateAndModelMerger {
 				} catch (TemplateException templateException) {
 					throw new DocumentTemplateException(templateException);
 				} finally {
-					IOUtils.closeQuietly(reader);
-					IOUtils.closeQuietly(writer);
+					reader.close();
+					writer.close();
 				}
 			}
 		}
@@ -90,17 +88,17 @@ class TemplateAndModelMerger {
 		}
 	}
 
-	private void addRequiredImages(OpenDocumentArchive archive, Map images) throws IOException {
+	private void addRequiredImages(OpenDocumentArchive archive, Map<ImageSource, String> images) throws IOException {
 		InputStream inputStream = archive.getEntryInputStream(OpenDocumentArchive.ENTRY_MANIFEST);
 		ManifestSubDocument manifest = new ManifestSubDocument(inputStream);
 		inputStream.close();
 		
-		for (Iterator it = images.keySet().iterator(); it.hasNext();) {
-			ImageSource imageWriter = (ImageSource) it.next();
+		for (Iterator<ImageSource> it = images.keySet().iterator(); it.hasNext();) {
+			ImageSource imageWriter = it.next();
 			String imageHref = (String) images.get(imageWriter);
 			OutputStream imageOutputStream = archive.getEntryOutputStream(imageHref);
 			imageWriter.write(imageOutputStream);
-			IOUtils.closeQuietly(imageOutputStream);
+			imageOutputStream.close();
 			manifest.addFileEntry("image/png", imageHref);
 		}
 

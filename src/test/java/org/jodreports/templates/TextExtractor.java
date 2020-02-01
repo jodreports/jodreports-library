@@ -43,6 +43,7 @@ public class TextExtractor extends DefaultHandler {
 		StringWriter stringWriter = new StringWriter();
 		extractText(inputStream, stringWriter);
 		inputStream.close();
+		zipFile.close();
 		return stringWriter.toString();
 	}
 

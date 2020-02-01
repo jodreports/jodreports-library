@@ -41,10 +41,10 @@ public abstract class AbstractTemplateTest extends TestCase {
 		}
 	}
 
-    protected String processTemplate(File templateFile, Map model) throws IOException, DocumentTemplateException {
+    protected String processTemplate(File templateFile, Map<String, Object> model) throws IOException, DocumentTemplateException {
     	File openDocumentFile = createTempFile("odt");
         DocumentTemplate template = documentTemplateFactory.getTemplate(templateFile);
-        Map configurations = template.getConfigurations();
+        Map<String, Object> configurations = template.getConfigurations();
         configurations.put("process_jooscript_only", Boolean.FALSE);
         template.createDocument(model, new FileOutputStream(openDocumentFile));
         assertFileCreated(openDocumentFile);

@@ -18,7 +18,7 @@ public abstract class AbstractInputStreamImageSource implements ImageSource {
 			inputStream = getInputStream();
 			IOUtils.copy(inputStream, outputStream);
 		} finally {
-			IOUtils.closeQuietly(inputStream);
+			inputStream.close();;
 		}
 	}
 	

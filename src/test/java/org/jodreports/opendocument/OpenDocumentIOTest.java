@@ -10,12 +10,9 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import junit.framework.TestCase;
-
-import org.jodreports.opendocument.OpenDocumentArchive;
-import org.jodreports.opendocument.OpenDocumentIO;
-
 import org.apache.commons.io.IOUtils;
+
+import junit.framework.TestCase;
 
 public class OpenDocumentIOTest extends TestCase {
 
@@ -24,7 +21,7 @@ public class OpenDocumentIOTest extends TestCase {
 		OpenDocumentArchive archive = OpenDocumentIO.readZip(input);
 
 		assertNotNull("null archive", archive);
-		Set entryNames = archive.getEntryNames();
+		Set<String> entryNames = archive.getEntryNames();
 		assertFalse("no entries", entryNames.isEmpty());
 
 		String mimetypeString = IOUtils.toString(archive.getEntryReader(OpenDocumentArchive.ENTRY_MIMETYPE));
@@ -36,7 +33,7 @@ public class OpenDocumentIOTest extends TestCase {
 		OpenDocumentArchive documentData = OpenDocumentIO.readDirectory(directory);
 
 		assertNotNull("null data", documentData);
-		Set entryNames = documentData.getEntryNames();
+		Set<String> entryNames = documentData.getEntryNames();
 		assertFalse("no entries", entryNames.isEmpty());
 
 		String mimetypeString = IOUtils.toString(documentData.getEntryReader(OpenDocumentArchive.ENTRY_MIMETYPE));
